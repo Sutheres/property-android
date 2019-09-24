@@ -1,4 +1,4 @@
-package com.prestiqe.property_android.data
+package com.prestiqe.property_android.data.models
 
 import com.google.gson.annotations.SerializedName
 
@@ -23,6 +23,12 @@ data class Property(
     val bathrooms: Double,
     @SerializedName("description")
     val description: String,
+    @SerializedName("status")
+    val status: String,
+    @SerializedName("notes")
+    val notes: String = "Please enter a note here...",
+    @SerializedName("images")
+    val images: ArrayList<Image>,
     @SerializedName("real_estate_type")
     val realEstateType: String,
     @SerializedName("property_type")

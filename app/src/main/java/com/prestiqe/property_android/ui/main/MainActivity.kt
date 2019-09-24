@@ -8,13 +8,21 @@ import com.prestiqe.property_android.ui.base.BaseActivity
 
 class MainActivity : BaseActivity<MainViewModel>() {
 
-    override fun provideLayoutID(): Int = R.layout.activity_main
+    companion object {
+        const val TAG = "MainActivity"
+    }
+
+    override fun provideLayoutID() = R.layout.activity_main
 
     override fun injectDependencies(activityComponent: ActivityComponent)
             = activityComponent.inject(this)
 
     override fun setupView(savedInstanceState: Bundle?) {
 
+    }
+
+    override fun setupObservers() {
+        super.setupObservers()
     }
 
 
