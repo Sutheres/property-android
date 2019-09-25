@@ -2,6 +2,7 @@ package com.prestiqe.property_android.di.module
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.prestiqe.property_android.di.FragmentContext
 import com.prestiqe.property_android.di.FragmentScope
 import com.prestiqe.property_android.ui.base.BaseFragment
@@ -19,6 +20,9 @@ class FragmentModule constructor(private val fragment: BaseFragment<*>) {
     @FragmentContext
     @Provides
     fun provideContext(): Context = fragment.context!!
+
+    @Provides
+    fun provideLinearLayoutManager() = LinearLayoutManager(fragment.context)
 
     @Provides
     fun provideMainViewModel(
