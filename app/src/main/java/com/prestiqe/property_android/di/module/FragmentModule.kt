@@ -2,11 +2,12 @@ package com.prestiqe.property_android.di.module
 
 import android.content.Context
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prestiqe.property_android.di.FragmentContext
-import com.prestiqe.property_android.di.FragmentScope
 import com.prestiqe.property_android.ui.base.BaseFragment
-import com.prestiqe.property_android.ui.properties.PropertyViewModel
+import com.prestiqe.property_android.ui.property.PropertyViewModel
+import com.prestiqe.property_android.ui.property.properties.PropertyAdapter
 import com.prestiqe.property_android.utils.ViewModelProviderFactory
 import com.prestiqe.property_android.utils.network.NetworkHelper
 import com.prestiqe.property_android.utils.rx.SchedulerProvider
@@ -23,6 +24,12 @@ class FragmentModule constructor(private val fragment: BaseFragment<*>) {
 
     @Provides
     fun provideLinearLayoutManager() = LinearLayoutManager(fragment.context)
+
+    @Provides
+    fun provideGridLayoutManager() = GridLayoutManager(fragment.context, 2)
+
+    @Provides
+    fun providePropertyAdapter() = PropertyAdapter(fragment.lifecycle, ArrayList())
 
     @Provides
     fun provideMainViewModel(

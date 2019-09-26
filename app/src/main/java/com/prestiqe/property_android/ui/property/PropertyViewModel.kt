@@ -1,4 +1,4 @@
-package com.prestiqe.property_android.ui.properties
+package com.prestiqe.property_android.ui.property
 
 import com.prestiqe.property_android.ui.base.BaseViewModel
 import com.prestiqe.property_android.utils.network.NetworkHelper

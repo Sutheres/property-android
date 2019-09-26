@@ -19,7 +19,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        mavenCentral()
     }
 }
 
@@ -49,6 +49,8 @@ project.ext {
     // logger
     // Logging
     timber_version = '4.7.1'
+
+    glide_version = '4.9.0'
 
 }
 

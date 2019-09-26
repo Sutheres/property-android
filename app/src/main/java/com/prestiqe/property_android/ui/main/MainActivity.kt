@@ -1,13 +1,12 @@
 package com.prestiqe.property_android.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.prestiqe.property_android.R
 import com.prestiqe.property_android.di.component.ActivityComponent
 import com.prestiqe.property_android.ui.base.BaseActivity
-import com.prestiqe.property_android.ui.properties.PropertyFragment
+import com.prestiqe.property_android.ui.property.PropertyFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity<MainViewModel>() {
