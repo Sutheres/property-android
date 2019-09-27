@@ -21,6 +21,10 @@ data class Property(
     val bedrooms: Double,
     @SerializedName("bathrooms")
     val bathrooms: Double,
+    @SerializedName("price")
+    val price: String,
+    @SerializedName("square_feet")
+    val squareFeet: String,
     @SerializedName("description")
     val description: String,
     @SerializedName("status")

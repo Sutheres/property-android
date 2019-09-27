@@ -33,6 +33,26 @@ class PropertyItemViewHolder(parent: ViewGroup) :
         viewModel.image.observe(this, Observer {
             Glide.with(itemView.context).load(it.url).into(itemView.image)
         })
+
+        viewModel.price.observe(this, Observer {
+            itemView.price.text = it
+        })
+
+        viewModel.address.observe(this, Observer {
+            itemView.address.text = it
+        })
+
+        viewModel.beds.observe(this, Observer {
+            itemView.bedsTv.text = it
+        })
+
+        viewModel.baths.observe(this, Observer {
+            itemView.bathsTv.text = it
+        })
+
+        viewModel.sqFt.observe(this, Observer {
+            itemView.squareFeet.text = it
+        })
     }
 
 }

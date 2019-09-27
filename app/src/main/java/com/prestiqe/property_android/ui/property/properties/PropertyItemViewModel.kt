@@ -24,6 +24,11 @@ class PropertyItemViewModel @Inject constructor(
 
     val description: LiveData<String> = Transformations.map(data) { it.description }
     val image: LiveData<Image> = Transformations.map(data) { it.images[0] }
+    val price: LiveData<String> = Transformations.map(data) { it.price }
+    val address: LiveData<String> = Transformations.map(data) { "${it.streetNumber} ${it.street} ${it.streetSuffix}, ${it.city}, ${it.state}"}
+    val beds: LiveData<String> = Transformations.map(data) { "${it.bedrooms} beds" }
+    val baths: LiveData<String> = Transformations.map(data) { "${it.bathrooms} baths" }
+    val sqFt: LiveData<String> = Transformations.map(data) { "${it.squareFeet} SqFt" }
 
     override fun onCreate() {}
 

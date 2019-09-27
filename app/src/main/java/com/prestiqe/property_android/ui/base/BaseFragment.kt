@@ -66,7 +66,7 @@ abstract class BaseFragment<VM: BaseViewModel> : Fragment() {
     @LayoutRes
     protected abstract fun provideLayoutID(): Int
 
-    protected abstract fun injectDependencies(activityComponent: FragmentComponent)
+    protected abstract fun injectDependencies(fragmentComponent: FragmentComponent)
 
     protected abstract fun setupView(view: View)
 
