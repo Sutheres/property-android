@@ -2,6 +2,7 @@ package com.prestiqe.property_android.di.component
 
 import android.app.Application
 import android.content.Context
+import com.prestiqe.property_android.data.repository.PropertyRepository
 import com.prestiqe.property_android.di.ApplicationContext
 import com.prestiqe.property_android.di.module.ApplicationModule
 import com.prestiqe.property_android.utils.network.NetworkHelper
@@ -26,4 +27,6 @@ interface ApplicationComponent {
     fun getSchedulerProvider(): SchedulerProvider
 
     fun getNetworkHelper(): NetworkHelper
+
+    fun getPropertyRepository(): PropertyRepository
 }

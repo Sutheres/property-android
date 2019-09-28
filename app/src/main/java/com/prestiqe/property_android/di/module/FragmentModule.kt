@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.prestiqe.property_android.data.repository.PropertyRepository
 import com.prestiqe.property_android.di.FragmentContext
 import com.prestiqe.property_android.ui.base.BaseFragment
 import com.prestiqe.property_android.ui.property.PropertyViewModel
@@ -35,9 +36,10 @@ class FragmentModule constructor(private val fragment: BaseFragment<*>) {
     fun provideMainViewModel(
         schedulerProvider: SchedulerProvider,
         compositeDisposable: CompositeDisposable,
-        networkHelper: NetworkHelper
+        networkHelper: NetworkHelper,
+        propertyRepository: PropertyRepository
     ): PropertyViewModel = ViewModelProviders.of(
         fragment.activity!!, ViewModelProviderFactory(PropertyViewModel::class) {
-            PropertyViewModel(schedulerProvider, compositeDisposable, networkHelper)
+            PropertyViewModel(schedulerProvider, compositeDisposable, networkHelper, propertyRepository)
         }).get(PropertyViewModel::class.java)
 }

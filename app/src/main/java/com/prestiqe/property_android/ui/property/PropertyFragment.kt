@@ -2,6 +2,7 @@ package com.prestiqe.property_android.ui.property
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prestiqe.property_android.R
@@ -31,85 +32,16 @@ class PropertyFragment : BaseFragment<PropertyViewModel>() {
         properties_rv.layoutManager = linearLayoutManager
         properties_rv.adapter = adapter
 
-        val properties = ArrayList<Property>()
-        val images = ArrayList<Image>()
+    }
 
-        images.add(Image("image", "https://isvr.acceleragent.com/usr/1549750369/CustomPages/images/3.jpg"))
+    override fun setupObservers() {
+        super.setupObservers()
 
-        properties.add(
-            Property("1", "2933", "Montana", "Ave",
-            "Cincinnati", "OH", "45211", 4.5, 2.5,
-                "$40,000", "2,500",
-            "2 family in westwood", "Prospect", "my last apartment",
-                images, "residential", "multi-family"
-            )
-        )
-
-        properties.add(
-            Property("1", "1000", "South Grand", "Ave",
-                "Los Angeles", "CA", "90015", 75.toDouble(), 60.toDouble(),
-                "$75,540,000", "20,500",
-                "1000 Grand by 711", "Prospect", "nice building looks like a hotel",
-                images, "commercial", "apartment building"
-            )
-        )
-
-        properties.add(
-            Property("1", "2933", "Montana", "Ave",
-                "Cincinnati", "OH", "45211", 4.5, 2.5,
-                "$40,000", "2,500",
-                "2 family in westwood", "Prospect", "my last apartment",
-                images, "residential", "multi-family"
-            )
-        )
-
-        properties.add(
-            Property("1", "2933", "Montana", "Ave",
-                "Cincinnati", "OH", "45211", 4.5, 2.5,
-                "$40,000", "2,500",
-                "2 family in westwood", "Prospect", "my last apartment",
-                images, "residential", "multi-family"
-            )
-        )
-
-        properties.add(
-            Property("1", "2933", "Montana", "Ave",
-                "Cincinnati", "OH", "45211", 4.5, 2.5,
-                "$40,000", "2,500",
-                "2 family in westwood", "Prospect", "my last apartment",
-                images, "residential", "multi-family"
-            )
-        )
-
-        properties.add(
-            Property("1", "2933", "Montana", "Ave",
-                "Cincinnati", "OH", "45211", 4.5, 2.5,
-                "$40,000", "2,500",
-                "2 family in westwood", "Prospect", "my last apartment",
-                images, "residential", "multi-family"
-            )
-        )
-
-        properties.add(
-            Property("1", "2933", "Montana", "Ave",
-                "Cincinnati", "OH", "45211", 4.5, 2.5,
-                "$40,000", "2,500",
-                "2 family in westwood", "Prospect", "my last apartment",
-                images, "residential", "multi-family"
-            )
-        )
-
-        properties.add(
-            Property("1", "2933", "Montana", "Ave",
-                "Cincinnati", "OH", "45211", 4.5, 2.5,
-                "$40,000", "2,500",
-                "2 family in westwood", "Prospect", "my last apartment",
-                images, "residential", "multi-family"
-            )
-        )
-
-        adapter.updateData(properties)
-
+        viewModel.properties.observe(this, Observer {
+            it?.let {
+                adapter.updateData(it)
+            }
+        })
     }
 
     companion object {

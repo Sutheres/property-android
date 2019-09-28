@@ -50,87 +50,45 @@
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@+id/price" />
 
-    <LinearLayout
+
+    <TextView
         android:id="@+id/beds"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
+        android:drawableStart="@drawable/ic_bed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/baths"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/address">
+        app:layout_constraintTop_toBottomOf="@id/address" />
 
-        <ImageView
-            android:id="@+id/ic_bed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_bed" />
-
-        <TextView
-            android:id="@+id/bedsTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/baths"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
+        android:drawableStart="@drawable/ic_bath"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/sqFt"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@id/beds"
-        app:layout_constraintTop_toBottomOf="@id/address">
+        app:layout_constraintTop_toBottomOf="@id/address" />
 
-        <ImageView
-            android:id="@+id/ic_bath"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_bath" />
-
-        <TextView
-            android:id="@+id/bathsTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:id="@+id/sqFt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:orientation="horizontal"
+        android:drawableStart="@drawable/ic_sqft"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/baths">
-
-        <ImageView
-            android:id="@+id/ic_sqft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_sqft" />
-
-
-        <TextView
-            android:id="@+id/squareFeet"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp" />
-
-    </LinearLayout>
+        app:layout_constraintStart_toEndOf="@id/baths" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

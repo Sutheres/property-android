@@ -1,9 +1,9 @@
 package com.prestiqe.property_android.di.module
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.prestiqe.property_android.di.ActivityContext
+import com.prestiqe.property_android.ui.property_details.PropertyDetailsViewModel
 import com.prestiqe.property_android.ui.base.BaseActivity
 import com.prestiqe.property_android.ui.main.MainViewModel
 import com.prestiqe.property_android.utils.ViewModelProviderFactory
@@ -29,4 +29,18 @@ class ActivityModule constructor(private val activity: BaseActivity<*>) {
         activity, ViewModelProviderFactory(MainViewModel::class) {
         MainViewModel(schedulerProvider, compositeDisposable, networkHelper)
     }).get(MainViewModel::class.java)
+
+    @Provides
+    fun providePropertyDetailsViewModel(
+        schedulerProvider: SchedulerProvider,
+        compositeDisposable: CompositeDisposable,
+        networkHelper: NetworkHelper
+    ): PropertyDetailsViewModel = ViewModelProviders.of(
+        activity, ViewModelProviderFactory(PropertyDetailsViewModel::class) {
+            PropertyDetailsViewModel(
+                schedulerProvider,
+                compositeDisposable,
+                networkHelper
+            )
+        }).get(PropertyDetailsViewModel::class.java)
 }

@@ -1,5 +1,6 @@
 package com.prestiqe.property_android.ui.property.properties
 
+import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewParent
@@ -9,6 +10,7 @@ import com.prestiqe.property_android.R
 import com.prestiqe.property_android.data.models.Property
 import com.prestiqe.property_android.di.component.ViewHolderComponent
 import com.prestiqe.property_android.ui.base.BaseItemViewHolder
+import com.prestiqe.property_android.ui.property_details.PropertyDetailsActivity
 import kotlinx.android.synthetic.main.property_list_item.view.*
 
 
@@ -19,7 +21,7 @@ class PropertyItemViewHolder(parent: ViewGroup) :
 
     override fun setupView(view: View) {
         itemView.setOnClickListener {
-            viewModel.onItemClick(itemView.context)
+            viewModel.onItemClick()
         }
     }
 
@@ -43,15 +45,21 @@ class PropertyItemViewHolder(parent: ViewGroup) :
         })
 
         viewModel.beds.observe(this, Observer {
-            itemView.bedsTv.text = it
+            itemView.beds.text = it
         })
 
         viewModel.baths.observe(this, Observer {
-            itemView.bathsTv.text = it
+            itemView.baths.text = it
         })
 
         viewModel.sqFt.observe(this, Observer {
-            itemView.squareFeet.text = it
+            itemView.sqFt.text = it
+        })
+
+        viewModel.propertyDetailsNavigation.observe(this, Observer {
+            it.getIfNotHandled()?.run {
+                itemView.context.startActivity(Intent(itemView.context, PropertyDetailsActivity::class.java))
+            }
         })
     }
 
